@@ -35,7 +35,7 @@ class Retriever:
                 f"Artifacts not found at {_ARTIFACT_DIR}. "
                 "Run `python scripts/ingest.py` first."
             )
-        self._vectors = np.load(str(_VECTORS_PATH)).astype(np.float32)
+        self._vectors = np.load(str(_VECTORS_PATH), allow_pickle=True).astype(np.float32)
         with open(_METADATA_PATH, encoding="utf-8") as fh:
             self._metadata = json.load(fh)
         self._loaded = True
