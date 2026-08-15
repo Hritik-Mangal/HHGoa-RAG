@@ -16,6 +16,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
+      external: ['@huggingface/transformers'],
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
