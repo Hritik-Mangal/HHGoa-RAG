@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ─────────────────────────────────────────────────────── */
+:root {
+  --bg-primary: #07140F;
+  --bg-secondary: #0B1F16;
+  --bg-elevated: #102A1E;
+  --bg-surface: rgba(16, 42, 30, 0.72);
+
+  --emerald-950: #032B20;
+  --emerald-900: #064B38;
+  --emerald-800: #086A4E;
+  --emerald-700: #0A8763;
+  --emerald-500: #19A974;
+  --emerald-300: #5BD6A3;
+
+  --gold-500: #C8A55A;
+  --gold-400: #D9BA70;
+  --gold-300: #E8D19A;
+
+  --text-primary: #F5F2E8;
+  --text-secondary: #C6D2CA;
+  --text-muted: #81978B;
+
+  --success: #53D68A;
+  --warning: #D9B765;
+  --danger: #E47C7C;
+
+  --border-subtle: rgba(200, 165, 90, 0.18);
+  --border-green: rgba(91, 214, 163, 0.18);
+
+  --ease-royal: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* ─── Background gradient + grain ───────────────────────────────────────── */
+#root {
+  position: relative;
+  min-height: 100dvh;
+}
+
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(25, 169, 116, 0.16), transparent 28%),
+    radial-gradient(circle at 85% 80%, rgba(200, 165, 90, 0.10), transparent 26%),
+    linear-gradient(135deg, #07140F 0%, #0B1F16 50%, #05100C 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.7) 0.5px, transparent 0.5px);
+  background-size: 5px 5px;
+  mix-blend-mode: soft-light;
+  z-index: 0;
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────── */
+.font-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-mono-data {
+  font-family: 'JetBrains Mono', monospace;
+  font-feature-settings: 'tnum';
+}
+
+/* ─── Glass panel ────────────────────────────────────────────────────────── */
+.glass {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 20px;
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--emerald-900); border-radius: 3px; }
+
+/* ─── Reduced motion ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

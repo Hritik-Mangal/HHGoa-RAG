@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.pytest_cache/
+.mypy_cache/
+.hypothesis/
+
+# Environments
+.env
+.env.*
+!.env.example
+.venv
+venv/
+env/
+
+# Data & large artifacts
+data/
+ingestion/artifacts/*.npy
+ingestion/artifacts/*.json
+!ingestion/artifacts/.gitkeep
+
+# Node / Frontend
+node_modules/
+web/node_modules/
+web/dist/
+web/.vite/
+npm-debug.log*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel/
+
+# Logs
+logs/
+*.log

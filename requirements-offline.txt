@@ -1,0 +1,10 @@
+# === Offline — local ingestion, benchmarking, evaluation ===
+-r requirements.txt
+datasets>=2.19.0
+sentence-transformers>=3.0.0
+faiss-cpu>=1.8.0
+torch>=2.2.0
+transformers>=4.40.0
+accelerate>=0.29.0
+pytest>=8.1.0
+uvicorn[standard]>=0.29.0
