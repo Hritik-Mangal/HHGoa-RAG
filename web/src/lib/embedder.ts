@@ -5,7 +5,8 @@
  * Kept in its own module so it's easily replaceable with a server-side embed API
  * if Transformers.js proves impractical on a given target.
  */
-let pipeline: (text: string | string[]) => Promise<{ data: Float32Array }[]> | null = null
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let pipeline: ((text: string | string[], opts?: any) => Promise<any>) | null = null
 let loadPromise: Promise<void> | null = null
 
 async function loadModel(): Promise<void> {
