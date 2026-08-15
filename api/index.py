@@ -3,19 +3,12 @@ Routes: POST /api/stt, POST /api/query, GET /api/health
 All heavy state (vector index) is loaded once at cold start.
 """
 from __future__ import annotations
-import io
 import logging
 import os
 import sys
 import time
 import uuid
 from pathlib import Path
-
-# Force UTF-8 stdout/stderr so structlog can print Hindi/non-ASCII on Windows
-if hasattr(sys.stdout, 'buffer'):
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
-if hasattr(sys.stderr, 'buffer'):
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 # Make sure the project root is on sys.path for relative imports
 _ROOT = Path(__file__).parent.parent
